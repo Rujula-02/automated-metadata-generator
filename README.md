@@ -44,8 +44,6 @@ automated_metadata/
 ├── metadata_generator.py # Metadata generation logic
 ├── templates/
 │ └── index.html # Upload form UI
-├── static/
-│ └── bg.avif # Background image
 ├── uploads/ # Runtime folder for uploaded files
 ├── output/ # Runtime folder for generated metadata
 ├── MARS.ipynb # Google Colab notebook
