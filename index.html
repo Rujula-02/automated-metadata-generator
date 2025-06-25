@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automated Metadata Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            background-color: rgba(255, 255, 255, 0.96);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d3436;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 75%;
+            background-color: #f9f9f9;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4834d4;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00b894;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #019875;
+        }
+
+        h3 {
+            color: #333;
+            border-bottom: 2px solid #6c5ce7;
+            padding-bottom: 6px;
+            margin-top: 40px;
+        }
+
+        pre {
+            background-color: #f1f2f6;
+            padding: 20px;
+            font-size: 15px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-left: 5px solid #6c5ce7;
+            border-radius: 10px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📄 Automated Metadata Generator</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="document" required><br>
+            <input type="submit" value="Generate Metadata">
+        </form>
+
+        {% if metadata %}
+            <h3>📋 Metadata Output</h3>
+            <pre>{{ metadata | tojson(indent=4) }}</pre>
+            <a href="{{ url_for('download', filename=file.filename + '_metadata.json') }}" class="download-btn">⬇️ Download Metadata (JSON)</a>
+        {% endif %}
+    </div>
+</body>
+</html>
