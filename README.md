@@ -1,4 +1,5 @@
-# MARS 2025 – Automated Metadata Generation System
+Automated Metadata Generation System (MARS 2025)
+
 This project presents a user-friendly, web-based system that automatically generates structured metadata from unstructured documents. It supports .txt, .pdf, and .docx formats, and includes OCR (Optical Character Recognition) capabilities for scanned image-based documents. Designed with simplicity and accessibility in mind, the system can be run in Google Colab and features a clean pastel-themed interface.
 
 📌 Project Overview
@@ -96,5 +97,6 @@ index.html – Web interface
 README.md – Documentation
 
 demo.mp4 or demo_link.txt – Demonstration video or link
+
 
 
